@@ -215,7 +215,12 @@ void HSODBC::Doing()
 
 bool HSODBC::DataHandle::GetRowCount(size_t& count)
 {
-	return (SQLRowCount(hstmt_, (SQLINTEGER*)&count) == SQL_SUCCESS);
+	SQLLEN c = 0;
+	if (SQLRowCount(hstmt_, &c) == SQL_SUCCESS) {
+		count = c;
+		return true;
+	}
+	return false;
 }
 
 bool HSODBC::DataHandle::Fetch()

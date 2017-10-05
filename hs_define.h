@@ -5,7 +5,7 @@
 static const int HS_NET_PACKET_MAX_SIZE = 8192;
 
 // 包头长
-static const unsigned char HS_NET_PACKET_HEDER_LENGTH = 4;
+static const unsigned char HS_NET_PACKET_HEADER_LENGTH = 4;
 
 // 识别码
 static const unsigned long HS_NET_PACKET_IDENTIFY_NUMBER = 0xEDCBA98;

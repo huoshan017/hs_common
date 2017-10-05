@@ -16,7 +16,7 @@ using namespace std;
 const size_t DEFAULT_RECV_BUFF_LEN = 4096;
 const size_t MAX_RECV_BUFF_LEN = 4096 * 16;
 const size_t DEFAULT_SEND_BUFF_LEN = 4096;
-const size_t MAX_RECV_BUFF_LEN = 4096 * 16;
+const size_t MAX_SEND_BUFF_LEN = 4096 * 16;
 
 /**
  * hs_sock_base 仅用于基类
@@ -26,7 +26,7 @@ const size_t MAX_RECV_BUFF_LEN = 4096 * 16;
 class hs_sock_base
 {
 public:
-	hs_sock_base(size_t send_buff_size, size_t recv_buff_size) :
+	hs_sock_base(size_t send_buff_size=DEFAULT_SEND_BUFF_LEN, size_t recv_buff_size=DEFAULT_RECV_BUFF_LEN) :
 			sock_(0),
 			send_buff_(NULL),
 			recv_buff_(NULL),

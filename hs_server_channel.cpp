@@ -5,8 +5,7 @@
 #include "fcntl.h"
 #endif
 
-/* hs_connector */
-hs_connector::hs_connector() : sock_(0), port_(0), state_(CLOSED)
+hs_connector::hs_connector() : port_(0), state_(CLOSED)
 {
 	memset(&timeout_, 0, sizeof(timeout_));
 }
@@ -280,16 +279,20 @@ const char* hs_server_channel::get_error_string()
 
 int hs_server_channel::handle_timeout()
 {
+	return 0;
 }
 
 int hs_server_channel::handle_write()
 {
+	return 0;
 }
 
 int hs_server_channel::handle_read()
 {
+	return 0;
 }
 
 int hs_server_channel::handle_error()
 {
+	return 0;
 }

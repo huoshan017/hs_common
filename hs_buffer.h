@@ -13,7 +13,7 @@
 class HSBuffer
 {
 public:
-	HSBuffer(size_t len = 1024) : length_(len), in_offset_(0), out_offset_(0)
+	HSBuffer(size_t len = 0) : length_(len), in_offset_(0), out_offset_(0)
 	{
 		if (len != 0) {
 			buffer_ = new char[len];
@@ -23,6 +23,16 @@ public:
 	virtual ~HSBuffer()
 	{
 		Clear();
+	}
+
+	void SetLength(size_t len)
+	{
+		if (len && length_ && len!=length_)
+		{
+			delete [] buffer_;
+			buffer_ = new char[len];
+			length_ = len;
+		}
 	}
 
 	void Clear(bool clear_memory = true)
@@ -94,6 +104,10 @@ public:
 
 	size_t GetLeftInSize() { return length_ - in_offset_; }
 	size_t GetLeftOutSize() { return length_ - out_offset_; }
+
+	// 能用于写的缓冲
+	char* GetCanWriteBuffer() { return GetInOffsetData(); }
+	size_t GetCanWriteBufferLength() { return GetLeftInSize(); }
 
 protected:
 	char* buffer_;

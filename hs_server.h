@@ -2,12 +2,8 @@
 #define __HS_SERVER_20130802_H__
 
 #include "hs_acceptor.h"
-#include "hs_test_eventhandler.h"
 #include "hs_connector.h"
 
-#include <map>
-
-using namespace std;
 
 class HSClientServer
 {

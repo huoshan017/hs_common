@@ -7,5 +7,13 @@
 #include <map>
 #include <deque>
 #include <set>
+#include <iostream>
+#include <string>
+
+#include <stdlib.h>
+#include <stdint.h>
+
+using namespace std;
+
 
 #endif

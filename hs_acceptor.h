@@ -31,7 +31,7 @@ public:
 		if (new_session.get() == NULL)
 			return;
 
-		new_session->clear();
+		//new_session->clear();
 		acceptor_.async_accept(new_session->socket(), boost::bind(&HSAcceptor::handle_accept, this, new_session, boost::asio::placeholders::error));
 		cout << "start listen port " << acceptor_.local_endpoint().port() << " to waiting client connection ..." << endl;
 	}
